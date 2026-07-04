@@ -14,7 +14,7 @@ table_name_map <- c(
   "used_subcountiesHIVselfkit" = "Table S2: Sub-counties used in the analysis of HIV self test kits",
   "HIV_Self_Test_Kits_Subcounty" = "Table S3: Sub-county-level stockout summary for HIV Self test kits",
   "HIV_Syphilsdualkit_Subcounty" = "Table S4: Sub-county-level stockout summary for HIV/Syphilis dual kits",
-  "Sub_counties_mixed_tableHIVSyphilsdualkit" = "Table S5: Effect of 2025 external funding cut on HIV/Syphilis dual by Sub-county"
+  "Sub_counties_mixed_tableHIVSyphilsdualkit" = "Table S5: Effect of 2025 external funding cut on HIV/Syphilis dual kits by Sub-county"
 )
 
 order_tables_by_number <- function(x) {
