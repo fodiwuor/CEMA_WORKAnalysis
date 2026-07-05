@@ -36,7 +36,8 @@ special_stockout_tables <- c(
   "Table S4: Sub-county-level stockout summary for HIV/Syphilis dual kits"
 )
 
-special_effect_table <- "Table S5: Effect of 2025 external funding cut on HIV/Syphilis dual by Sub-county"
+#special_effect_table <- "Table S5: Effect of 2025 external funding cut on HIV/Syphilis dual kits by Sub-county"
+special_effect_table <- "Table S5: Effect of 2025 external funding cut on HIV/Syphilis dual kits by Sub-county"
 
 load_excel_tables_from_github <- function() {
   res <- GET(github_api_url)
@@ -78,10 +79,10 @@ load_excel_tables_from_github <- function() {
       names(df) <- c(
         "County",
         "Sub-county",
-        "Pre-funding cut median (IQR)",
-        "Post-funding cut median (IQR)",
-        "Pre-funding cut median (IQR) ",
-        "Post-funding cut median (IQR) "
+        "Pre-funding median (IQR)",
+        "Post-funding median (IQR)",
+        "Pre-funding median (IQR) ",
+        "Post-funding median (IQR) "
       )
     }
     
@@ -284,10 +285,10 @@ server <- function(input, output, session) {
                 th(colspan = 2, "Percent (%) stockout rate")
               ),
               tr(
-                th("Pre-funding median (IQR)"),
-                th("Post-funding median (IQR)"),
-                th("Pre-funding median (IQR)"),
-                th("Post-funding median (IQR)")
+                th("Pre-funding cut median (IQR)"),
+                th("Post-funding cut median (IQR)"),
+                th("Pre-funding cut median (IQR)"),
+                th("Post-funding cut median (IQR)")
               )
             )
           )
