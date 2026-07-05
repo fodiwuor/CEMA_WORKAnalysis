@@ -34,8 +34,9 @@ order_tables_by_number <- function(x) {
 special_stockout_tables <- c(
   "Table S3: Sub-county-level stockout summary for HIV Self test kits",
   "Table S4: Sub-county-level stockout summary for HIV/Syphilis dual kits"
-  #"Sub_counties_mixed_tableHIVSyphilsdualkit" = "Table S5: Effect of 2025 external funding cut on HIV/Syphilis dual by Sub-county"
 )
+
+special_effect_table <- "Table S5: Effect of 2025 external funding cut on HIV/Syphilis dual by Sub-county"
 
 load_excel_tables_from_github <- function() {
   res <- GET(github_api_url)
@@ -64,15 +65,23 @@ load_excel_tables_from_github <- function() {
     )
     
     df <- read_excel(temp_file) |> as.data.frame()
+
+ if (display_name == special_effect_table) {
+
+  names(df)[names(df) == "Trend_Prepolicy(IRR)"] <-
+    "Pre-funding cut trend (IRR)"
+
+}
+    
     
     if (display_name %in% special_stockout_tables) {
       names(df) <- c(
         "County",
         "Sub-county",
-        "Pre-funding median (IQR)",
-        "Post-funding median (IQR)",
-        "Pre-funding median (IQR) ",
-        "Post-funding median (IQR) "
+        "Pre-funding cut median (IQR)",
+        "Post-funding cut median (IQR)",
+        "Pre-funding cut median (IQR) ",
+        "Post-funding cut median (IQR) "
       )
     }
     
