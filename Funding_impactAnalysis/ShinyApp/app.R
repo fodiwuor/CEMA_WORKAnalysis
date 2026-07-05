@@ -68,10 +68,13 @@ load_excel_tables_from_github <- function() {
     df <- read_excel(temp_file) |> as.data.frame()
 
  if (display_name == special_effect_table) {
-
-  names(df)[names(df) == "Trend_Prepolicy(IRR)"] <-
+  
+  names(df) <- stringr::str_replace_all(
+    names(df),
+    "Trend_Prepolicy\\s*\\(IRR\\)",
     "Pre-funding cut trend (IRR)"
-
+  )
+  
 }
     
     
